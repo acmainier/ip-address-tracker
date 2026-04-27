@@ -1,0 +1,25 @@
+:root {
+  --gray-950: hsl(0, 0%, 17%);
+  --gray-400: hsl(0, 0%, 58%);
+}
+
+body {
+  font-size: 18px;
+  font-family: "Rubik", sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}

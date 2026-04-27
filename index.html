@@ -1,34 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | IP Address Tracker</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <title>Frontend Mentor | IP Address Tracker</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>IP Address Tracker</h1>
+      <form>
+        <input
+          type="text"
+          name="ip-address"
+          aria-label="Search for any IP address or domain"
+          id="ip-address"
+          placeholder="8.8.8.8"
+        />
+        <button type="submit">
+          <img src="./images/icon-arrow.svg" alt="Submit" />
+        </button>
+      </form>
+    </header>
+    <main>
+      <section>
+        <h2 class="sr-only">IP lookup results</h2>
+        <dl>
+          <div>
+            <dt>IP Address</dt>
+            <dd></dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd></dd>
+          </div>
+          <div>
+            <dt>Timezone</dt>
+            <dd></dd>
+          </div>
+          <div>
+            <dt>ISP</dt>
+            <dd></dd>
+          </div>
+        </dl>
+      </section>
+      <div id="map"></div>
+    </main>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Anne-Cécile</a>.
+    </footer>
+    <script src="main.js"></script>
+  </body>
 </html>
