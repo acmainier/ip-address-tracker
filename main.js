@@ -8,6 +8,11 @@ const customIcon = L.icon({
 
 const form = document.getElementById("form");
 const input = document.getElementById("input");
+const error = document.getElementById("error");
+const ipAddress = document.getElementById("ipaddress");
+const locationElement = document.getElementById("location");
+const timezone = document.getElementById("timezone");
+const isp = document.getElementById("isp");
 
 async function getIPData() {
   let ipifyURL;
@@ -20,30 +25,45 @@ async function getIPData() {
     const param = isIP ? `ipAddress=${input.value}` : `domain=${input.value}`;
     ipifyURL = `https://geo.ipify.org/api/v2/country,city?apiKey=at_uW8gPDGUPRheumcYB6riwvKlijvEY&${param}`;
   }
-  const response = await fetch(ipifyURL);
-  const data = await response.json();
+  try {
+    error.textContent = "";
+    const response = await fetch(ipifyURL);
+    if (response.status === 422) {
+      throw new Error(
+        "Invalid format. Please enter a valid IP address or domain name.",
+      );
+    }
+    if (!response.ok) {
+      throw new Error(
+        "The service is currently unavailable. Please try again later.",
+      );
+    }
+    const data = await response.json();
+    const coords = [data.location.lat, data.location.lng];
 
-  document.getElementById("ipaddress").textContent = data.ip;
-  document.getElementById("location").textContent =
-    `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
-  document.getElementById("timezone").textContent = data.location.timezone;
-  document.getElementById("isp").textContent = data.isp;
+    ipAddress.textContent = data.ip;
+    location.textContent = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
+    timezone.textContent = data.location.timezone;
+    isp.textContent = data.isp;
 
-  if (!map) {
-    map = L.map("map").setView([data.location.lat, data.location.lng], 13);
+    if (!map) {
+      map = L.map("map").setView(coords, 13);
 
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 19,
-      attribution:
-        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(map);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
 
-    marker = L.marker([data.location.lat, data.location.lng], {
-      icon: customIcon,
-    }).addTo(map);
-  } else {
-    map.setView([data.location.lat, data.location.lng], 13);
-    marker.setLatLng([data.location.lat, data.location.lng]);
+      marker = L.marker(coords, {
+        icon: customIcon,
+      }).addTo(map);
+    } else {
+      map.setView(coords, 13);
+      marker.setLatLng(coords);
+    }
+  } catch (err) {
+    error.textContent = err.message;
   }
 }
 
