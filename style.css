@@ -19,6 +19,10 @@ body {
   border: 0;
 }
 
+#map {
+  height: 400px;
+}
+
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
