@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --gray-950: hsl(0, 0%, 17%);
   --gray-400: hsl(0, 0%, 58%);
@@ -17,6 +25,57 @@ body {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+  background-image: url("./images/pattern-bg-desktop.png");
+  background-size: cover;
+  background-position: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+h1 {
+  color: white;
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+
+form {
+  display: flex;
+  width: 40%;
+}
+
+form input {
+  flex: 1;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  padding: 0.8rem;
+  color: var(--gray-950);
+}
+
+form input::placeholder {
+  color: var(--gray-400);
+}
+
+form button {
+  border: none;
+  background-color: black;
+  border-radius: 0 10px 10px 0;
+  padding: 0.8rem 1rem;
+}
+
+form button img {
+  width: 9px;
+}
+
+form button:hover,
+form button:active {
+  background-color: var(--gray-950);
 }
 
 #map {

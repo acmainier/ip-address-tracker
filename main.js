@@ -42,7 +42,7 @@ async function getIPData() {
     const coords = [data.location.lat, data.location.lng];
 
     ipAddress.textContent = data.ip;
-    location.textContent = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
+    locationElement.textContent = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
     timezone.textContent = data.location.timezone;
     isp.textContent = data.isp;
 
