@@ -87,7 +87,7 @@ main {
 section {
   background-color: white;
   border-radius: 10px;
-  border: 1px solid var(--gray-400);
+  box-shadow: 0 4px 20px var(--gray-400);
   margin-top: -50px;
   width: 80%;
   padding: 1.5rem;
@@ -132,4 +132,37 @@ dd {
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
+}
+
+@media screen and (width <=900px) {
+  header {
+    background-image: url("./images/pattern-bg-mobile.png");
+    height: 280px;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  section {
+    margin-top: -140px;
+    width: 90%;
+  }
+
+  #map {
+    margin-top: -150px;
+  }
+
+  dl {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  dl div:not(:last-child) {
+    border-right: none;
+  }
+  dt,
+  dd {
+    text-align: center;
+  }
 }

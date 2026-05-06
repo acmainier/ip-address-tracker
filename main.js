@@ -47,7 +47,7 @@ async function getIPData() {
     isp.textContent = data.isp;
 
     if (!map) {
-      map = L.map("map").setView(coords, 13);
+      map = L.map("map", { zoomControl: false }).setView(coords, 13);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
