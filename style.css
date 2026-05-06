@@ -92,7 +92,7 @@ section {
   width: 80%;
   padding: 1.5rem;
   z-index: 1;
-  position: relative;
+  position: absolute;
 }
 
 dl {
@@ -124,7 +124,6 @@ dd {
 #map {
   height: 400px;
   width: 100%;
-  margin-top: -52px;
   position: relative;
   z-index: 0;
 }
@@ -147,10 +146,6 @@ dd {
   section {
     margin-top: -140px;
     width: 90%;
-  }
-
-  #map {
-    margin-top: -150px;
   }
 
   dl {
