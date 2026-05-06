@@ -8,6 +8,7 @@ const customIcon = L.icon({
 
 const form = document.getElementById("form");
 const input = document.getElementById("input");
+const button = document.getElementById("Button");
 const error = document.getElementById("error");
 const ipAddress = document.getElementById("ipaddress");
 const locationElement = document.getElementById("location");
@@ -16,6 +17,10 @@ const isp = document.getElementById("isp");
 
 async function getIPData() {
   let ipifyURL;
+  button.disabled = true;
+  document
+    .querySelectorAll("dd")
+    .forEach((dd) => (dd.textContent = "Loading..."));
 
   if (input.value === "") {
     ipifyURL =
@@ -64,6 +69,8 @@ async function getIPData() {
     }
   } catch (err) {
     error.textContent = err.message;
+  } finally {
+    button.disabled = false;
   }
 }
 

@@ -34,15 +34,15 @@
           id="input"
           placeholder="Search for any IP address or domain"
         />
-        <button type="submit">
+        <button id="Button" type="submit">
           <img src="./images/icon-arrow.svg" alt="Submit" />
         </button>
-        <p class="error" id="error"></p>
+        <p class="error" id="error" aria-live="polite"></p>
       </form>
     </header>
     <main>
       <section>
-        <h2 class="sr-only">IP lookup results</h2>
+        <span class="sr-only">IP lookup results</span>
         <dl>
           <div>
             <dt>IP Address</dt>
@@ -67,7 +67,7 @@
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Anne-Cécile</a>.
+      Coded by Anne-Cécile.
     </footer>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
