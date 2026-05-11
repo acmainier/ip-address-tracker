@@ -1,10 +1,5 @@
 let map;
 let marker;
-const customIcon = L.icon({
-  iconUrl: "images/icon-location.svg",
-  iconSize: [30, 40],
-  iconAnchor: [15, 40],
-});
 
 const form = document.getElementById("form");
 const input = document.getElementById("input");
@@ -50,6 +45,12 @@ async function getIPData() {
     locationElement.textContent = `${data.location.city}, ${data.location.region} ${data.location.postalCode}`;
     timezone.textContent = data.location.timezone;
     isp.textContent = data.isp;
+
+    const customIcon = L.icon({
+      iconUrl: "images/icon-location.svg",
+      iconSize: [30, 40],
+      iconAnchor: [15, 40],
+    });
 
     if (!map) {
       map = L.map("map", { zoomControl: false }).setView(coords, 13);

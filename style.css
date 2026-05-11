@@ -12,7 +12,7 @@
 }
 
 body {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-family: "Rubik", sans-serif;
 }
 
@@ -121,7 +121,7 @@ dd {
   font-weight: 500;
 }
 
-#map {
+.map {
   height: 400px;
   width: 100%;
   position: relative;
